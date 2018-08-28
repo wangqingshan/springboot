@@ -1,0 +1,52 @@
+spring:
+  ## MySQL
+  datasource:
+    readSize: 2
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    write:
+       url: jdbc:mysql://172.116.1.201:3306/b16live?useUnicode=true&characterEncoding=utf-8
+       username: write
+       password: write
+       driver-class-name: com.mysql.jdbc.Driver
+
+    read01:
+       url: jdbc:mysql://172.116.1.201:3306/b16live?useUnicode=true&characterEncoding=utf-8
+       username: write
+       password: write
+       driver-class-name: com.mysql.jdbc.Driver
+
+    read02:
+       url: jdbc:mysql://172.116.1.201:3306/b16live?useUnicode=true&characterEncoding=utf-8
+       username: write
+       password: write
+       driver-class-name: com.mysql.jdbc.Driver
+
+
+ ## Redis配置
+  redis:
+    host: 172.16.1.94
+    port: 6387
+    timeout: 10000
+    password:
+    sentinel:
+          master: mymaster
+          nodes: 172.16.1.94:26390,172.16.1.94:26391,172.16.1.94:26392
+
+
+
+log:
+  config: classpath:logback-spring.xml
+  loggingRoot: /home/B16Live/logs/product
+  loggingLevel: error
+  myLoggingLevel: info
+  remote_logServer_ip: 127.0.0.1
+
+pro:
+    uploadUrl: http://sl.baike.local/api/v1
+    domainUrl: http://sl.baike.com
+
+
+
+
+

@@ -1,0 +1,32 @@
+spring:
+  freemarker:
+      charset: UTF-8
+      content-type: text/html
+      suffix: .ftl
+      template-loader-path: classpath:/templates/
+      request-context-attribute: true
+      settings:
+        #这里主要处理${xxx}为空值时报错，详见http://blog.csdn.net/achilles12345/article/details/38085225
+        classic_compatible: true
+        template_update_delay: 0
+      cache: false  #热部署时，关闭freemarker页面缓存
+
+  profiles:
+       active:  ${pom.env}
+
+pro:
+    domainUrl: http://127.0.0.1:8080
+
+server:
+  #端口号
+  port: 80
+  #项目名，如果不设定，默认是 /
+
+my:
+  uuid: ${random.uuid}
+  number:
+       in:
+        range: ${random.int[1024,65536]}
+       less:
+         than:
+            ten: ${random.int(10)}
